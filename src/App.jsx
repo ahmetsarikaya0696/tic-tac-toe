@@ -1,10 +1,13 @@
+import { PlayerList } from "./components/PlayerList";
 
 function App() {
-  
-
   return (
-    <p>Coming soon...</p>
-  )
+    <main>
+      <div id="game-container">
+        <PlayerList />
+      </div>
+    </main>
+  );
 }
 
-export default App
+export default App;
