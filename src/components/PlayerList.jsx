@@ -1,11 +1,19 @@
 import React from "react";
 import { PlayerItem } from "./PlayerItem";
 
-export const PlayerList = () => {
+export const PlayerList = ({ currentSymbol }) => {
   return (
-    <ol id="players">
-      <PlayerItem initialName="Player 1" symbol="X" />
-      <PlayerItem initialName="Player 2" symbol="O" />
+    <ol id="players" className="highlight-player">
+      <PlayerItem
+        initialName="Player 1"
+        symbol="X"
+        isActive={currentSymbol === "X" ? "active" : ""}
+      />
+      <PlayerItem
+        initialName="Player 2"
+        symbol="O"
+        isActive={currentSymbol === "O" ? "active" : ""}
+      />
     </ol>
   );
 };
