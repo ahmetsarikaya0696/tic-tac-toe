@@ -6,21 +6,13 @@ const initialBoardValues = [
   [null, null, null],
 ];
 
-export const GameBoard = ({ onSymbolChange, currentSymbol }) => {
-  const [boardValues, setBoardValues] = useState(initialBoardValues);
+export const GameBoard = ({ onClick, logs }) => {
+  let boardValues = initialBoardValues;
 
-  const handleClick = (rowIndex, columnIndex) => {
-    const hasValue = boardValues[rowIndex][columnIndex];
-    if (hasValue) return boardValues;
-
-    onSymbolChange();
-
-    setBoardValues((boardValues) => {
-      const newBoardValues = [...boardValues.map((row) => [...row])];
-      newBoardValues[rowIndex][columnIndex] = currentSymbol;
-      return newBoardValues;
-    });
-  };
+  logs.forEach((log) => {
+    const { rowIndex, colIndex, symbol } = log;
+    boardValues[rowIndex][colIndex] = symbol;
+  });
 
   return (
     <ol id="game-board">
@@ -29,7 +21,7 @@ export const GameBoard = ({ onSymbolChange, currentSymbol }) => {
           <ol>
             {row.map((item, columnIndex) => (
               <li key={columnIndex}>
-                <button onClick={() => handleClick(rowIndex, columnIndex)}>
+                <button onClick={() => onClick(rowIndex, columnIndex)}>
                   {item}
                 </button>
               </li>
