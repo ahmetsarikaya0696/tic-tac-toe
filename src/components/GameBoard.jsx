@@ -21,7 +21,10 @@ export const GameBoard = ({ onClick, logs }) => {
           <ol>
             {row.map((item, columnIndex) => (
               <li key={columnIndex}>
-                <button onClick={() => onClick(rowIndex, columnIndex)}>
+                <button
+                  onClick={() => onClick(rowIndex, columnIndex)}
+                  className={item !== null ? "disabled" : ""}
+                >
                   {item}
                 </button>
               </li>
