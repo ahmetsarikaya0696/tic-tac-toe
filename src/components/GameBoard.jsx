@@ -23,7 +23,7 @@ export const GameBoard = ({ onClick, logs }) => {
               <li key={columnIndex}>
                 <button
                   onClick={() => onClick(rowIndex, columnIndex)}
-                  className={item !== null ? "disabled" : ""}
+                  disabled={item !== null}
                 >
                   {item}
                 </button>
