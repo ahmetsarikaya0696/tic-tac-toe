@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const PlayerItem = ({ initialName, symbol, isActive }) => {
+export const PlayerItem = ({ initialName, symbol, isActive, onPlayerNameChange }) => {
   const [name, setName] = useState(initialName);
   const [input, setInput] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
@@ -17,6 +17,7 @@ export const PlayerItem = ({ initialName, symbol, isActive }) => {
   const handleSave = () => {
     setName(input);
     setIsEditing((prevState) => !prevState);
+    onPlayerNameChange(symbol, input);
   };
 
   const playerNameElement = isEditing ? (

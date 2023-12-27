@@ -1,19 +1,6 @@
 import React from "react";
 
-const initialBoardValues = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export const GameBoard = ({ onClick, logs }) => {
-  let boardValues = initialBoardValues;
-
-  logs.forEach((log) => {
-    const { rowIndex, colIndex, symbol } = log;
-    boardValues[rowIndex][colIndex] = symbol;
-  });
-
+export const GameBoard = ({ onClick, boardValues }) => {
   return (
     <ol id="game-board">
       {boardValues.map((row, rowIndex) => (
