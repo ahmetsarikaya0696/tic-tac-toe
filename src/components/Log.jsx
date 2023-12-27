@@ -11,7 +11,5 @@ export const Log = ({ logs }) => {
     );
   });
 
-  console.log(logElements);
-
   return <ol id="log">{logElements}</ol>;
 };
