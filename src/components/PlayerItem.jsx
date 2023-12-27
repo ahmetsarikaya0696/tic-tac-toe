@@ -6,6 +6,7 @@ export const PlayerItem = ({ initialName, symbol, isActive }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
+    setInput(name);
     setIsEditing((prevState) => !prevState);
   };
 
